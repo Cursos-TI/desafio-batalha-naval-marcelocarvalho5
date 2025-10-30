@@ -140,7 +140,7 @@ exibirTabuleiro()	Exibe o estado final do tabuleiro no console
 
 Clone o repositório:
 
-git clone https://github.com/seu-usuario/batalha-naval.git
+git clone https://github.com/Cursos-TI/desafio-batalha-naval-marcelocarvalho5
 cd batalha-naval
 
 
