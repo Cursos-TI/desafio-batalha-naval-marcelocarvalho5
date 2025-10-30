@@ -1,103 +1,174 @@
-# ⚠️ Importante!!!
-Você pode escolher qualquer um dos desafios para desenvolver. Sinta-se à vontade para começar pelo desafio que mais lhe interessa.
+🛳️ Batalha Naval em C – Desafios Novato, Aventureiro e Mestre
+🎯 Objetivo Geral
 
-# Desafio Batalha Naval - Três Níveis de Complexidade
+Este projeto tem como objetivo desenvolver, em três níveis de dificuldade, uma versão simplificada do clássico Batalha Naval, utilizando a linguagem C.
+Os desafios exploram vetores, matrizes, loops aninhados, condicionais e boas práticas de organização e documentação de código.
 
-Bem-vindo ao desafio "Batalha Naval"! Este projeto desafiará suas habilidades de programação utilizando vetores e matrizes para simular um jogo de Batalha Naval, dividido em três níveis: Novato, Aventureiro e Mestre. Em cada nível, novas funcionalidades serão adicionadas, tornando o desafio progressivamente mais complexo.
+🧱 Estrutura do Projeto
+Nível	Arquivo	Descrição
+🟢 Novato	batalha_naval_novato.c	Criação do tabuleiro e posicionamento básico de dois navios
+🟠 Aventureiro	batalha_naval_aventureiro.c	Adição de navios diagonais e validação de sobreposição
+🔴 Mestre	batalha_naval_mestre.c	Implementação de habilidades especiais com áreas de efeito (cone, cruz e octaedro)
+🧩 Nível Novato – Posicionando Navios
+🎯 Objetivo
 
-## 🏅 Nível Novato
+Criar um tabuleiro 10x10 e posicionar dois navios — um horizontal e outro vertical — utilizando matrizes e vetores.
 
-Neste nível inicial, você implementará a lógica básica de posicionamento de navios em um tabuleiro de Batalha Naval utilizando vetores bidimensionais.
+🔹 Regras:
 
-### 🚩 Objetivos:
-- **Posicionamento dos Navios:** O sistema deve simular a localização de dois navios no tabuleiro, um posicionado verticalmente e outro horizontalmente.
-- **Utilização de Vetores:** Os navios serão posicionados utilizando vetores bidimensionais, com coordenadas X e Y.
-- **Exibição de Coordenadas:** O sistema deve exibir as coordenadas de cada parte dos navios no console utilizando `printf`.
+O tabuleiro é representado por uma matriz 10x10 preenchida com 0 (água).
 
-### 📥 Entrada de Dados:
-- Os valores serão inseridos manualmente por meio de variáveis no código.
+Os navios ocupam 3 posições, representadas por 3.
 
-### 📤 Saída de Dados:
-- Após o posicionamento, o sistema deve exibir as coordenadas dos navios de forma clara e organizada.
+Os navios não podem ultrapassar os limites do tabuleiro nem se sobrepor.
 
----
+🔹 Exemplo de saída:
+=== TABULEIRO DE BATALHA NAVAL ===
 
-## 🏅 Nível Aventureiro
+0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0
+0 0 0 0 3 3 3 0 0 0
+0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 3 0 0
+0 0 0 0 0 0 0 3 0 0
+0 0 0 0 0 0 0 3 0 0
+0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0
 
-No nível Aventureiro, você expandirá o tabuleiro e adicionará mais navios, incluindo posicionamentos na diagonal.
+Legenda: 0 = Água | 3 = Navio
 
-### 🆕 Diferença em relação ao Nível Novato:
-- **Tabuleiro 10x10:** O tabuleiro será expandido para uma matriz 10x10.
-- **Posicionamento de Quatro Navios:** O sistema deverá posicionar quatro navios, incluindo dois na diagonal.
-- **Exibição Completa do Tabuleiro:** O sistema exibirá toda a matriz, onde 0 indica uma posição sem navio e 3 indica uma posição ocupada.
+⚓ Nível Aventureiro – Navios Diagonais
+🎯 Objetivo
 
-### 🚩 Novas Funcionalidades:
-- **Matriz 10x10:** Implementação de uma matriz maior para representar o tabuleiro.
-- **Posicionamento de Navios na Diagonal:** Adição de navios posicionados diagonalmente.
-- **Exibição do Tabuleiro Completo:** O sistema mostrará o tabuleiro completo, indicando as posições ocupadas e livres.
+Expandir o jogo adicionando navios posicionados na diagonal, mantendo o controle de sobreposição e limites.
 
----
+🔹 Regras:
 
-## 🏅 Nível Mestre
+O tabuleiro continua 10x10.
 
-No nível Mestre, o desafio se intensifica com a implementação de habilidades especiais representadas por matrizes específicas no tabuleiro.
+Quatro navios de 3 posições:
 
-### 🆕 Diferença em relação ao Nível Aventureiro:
-- **Habilidades Especiais:** O sistema deve definir áreas de habilidades utilizando matrizes com padrões específicos: cone, cruz e octaedro.
-- **Estruturas de Repetição Aninhadas:** Utilização de loops aninhados para percorrer e preencher as áreas afetadas pelas habilidades.
+Dois horizontais/verticais.
 
-### 🚩 Novas Funcionalidades:
-- **Matrizes de Habilidades:** Implementação de três matrizes para representar habilidades especiais no tabuleiro.
-- **Padrões de Habilidade:** Criação de padrões específicos (cone, cruz, octaedro) para definir as áreas afetadas.
-- **Exibição das Áreas Atingidas:** O sistema exibirá o tabuleiro com as áreas afetadas, utilizando 0 para áreas não afetadas e 1 para áreas afetadas.
+Dois diagonais (principal \ e secundária /).
 
-### Exemplo de Saída:
+Nenhum navio pode ultrapassar os limites do tabuleiro.
 
-Exemplo e comando:
-printf("%d ",matriz[i][j]);
+Sobreposições são verificadas antes de posicionar.
 
-### Exemplo de saída de habilidade em cone:
+🔹 Exemplo de saída:
+=== TABULEIRO DE BATALHA NAVAL ===
 
+0 0 0 0 0 0 0 0 0 3 
+0 0 3 3 3 0 0 0 0 0 
+0 0 0 0 0 0 0 0 0 0 
+0 3 0 3 0 0 0 0 0 0 
+0 0 3 0 3 0 0 0 0 0 
+0 0 0 0 0 0 0 3 0 0 
+0 0 0 0 0 0 0 3 0 0 
+0 0 0 0 0 0 0 3 0 0 
+0 0 0 0 0 0 0 0 0 0 
+0 0 0 0 0 0 0 0 0 0 
+
+Legenda: 0 = Água | 3 = Navio
+
+💥 Nível Mestre – Habilidades Especiais e Áreas de Efeito
+🎯 Objetivo
+
+Adicionar habilidades especiais com áreas de efeito (AOE) sobre o tabuleiro:
+
+Cone
+
+Cruz
+
+Octaedro
+
+As habilidades afetam posições no tabuleiro e são exibidas visualmente, sem causar “dano” aos navios.
+
+🔹 Representação:
+Valor	Significado
+0	Água
+3	Navio
+5	Área afetada por habilidade
+🔹 Matrizes de habilidades (5x5):
+🔸 Cone
 0 0 1 0 0
-
 0 1 1 1 0
-
 1 1 1 1 1
+0 0 0 0 0
+0 0 0 0 0
 
-### Exemplo de saída de habilidade em octaedro:
-
+🔸 Cruz
+0 0 1 0 0
+0 0 1 0 0
+1 1 1 1 1
+0 0 1 0 0
 0 0 1 0 0
 
+🔸 Octaedro
+0 0 1 0 0
 0 1 1 1 0
-
-0 0 1 0 0
-
-### Exemplo de saída de habilidade em cruz:
-
-0 0 1 0 0
-
 1 1 1 1 1
-
+0 1 1 1 0
 0 0 1 0 0
 
+🔹 Exemplo de saída:
+=== TABULEIRO DE BATALHA NAVAL ===
+
+0 0 0 5 5 5 0 0 0 0 
+0 0 0 5 5 5 0 0 0 0 
+0 0 3 3 3 0 0 0 0 0 
+0 0 0 5 5 5 0 0 0 0 
+0 5 5 5 5 5 0 0 0 0 
+5 5 5 5 5 5 0 3 0 0 
+0 0 0 5 0 5 0 3 0 0 
+0 5 5 5 5 5 0 3 0 0 
+0 0 5 5 5 0 0 0 0 0 
+0 0 0 5 0 0 0 0 0 0 
+
+Legenda: 0 = Água | 3 = Navio | 5 = Área de Habilidade
+
+🧩 Estrutura das Funções (Nível Mestre)
+Função	Descrição
+inicializarTabuleiro()	Preenche o tabuleiro com água (0)
+posicionarNavioHorizontal() / posicionarNavioVertical()	Posicionam navios de tamanho fixo (3)
+criarCone() / criarCruz() / criarOctaedro()	Criam dinamicamente as formas de habilidade
+aplicarHabilidade()	Sobrepõe as áreas de efeito no tabuleiro
+exibirTabuleiro()	Exibe o estado final do tabuleiro no console
+🚀 Como Executar o Projeto
+
+Clone o repositório:
+
+git clone https://github.com/seu-usuario/batalha-naval.git
+cd batalha-naval
 
 
+Compile o programa desejado:
+
+gcc batalha_naval_novato.c -o batalha_novato
+gcc batalha_naval_aventureiro.c -o batalha_aventureiro
+gcc batalha_naval_mestre.c -o batalha_mestre
 
 
----
+Execute:
 
-## 📋 Requisitos Funcionais Comuns
-- **Entrada de Dados:** Os valores serão inseridos manualmente por meio de variáveis no código.
-- **Utilização de Matrizes:** Os dados devem ser estruturados de maneira eficiente utilizando matrizes.
-- **Exibição de Resultados:** Os resultados devem ser exibidos de forma clara e organizada.
+./batalha_novato
+./batalha_aventureiro
+./batalha_mestre
 
-## 📌 Requisitos Não Funcionais Comuns
-- **Performance:** O sistema deve executar operações de forma eficiente, sem atrasos perceptíveis.
-- **Documentação:** O código deve ser bem documentado, com comentários claros sobre a função de cada parte do código.
-- **Manutenibilidade:** O código deve ser organizado e fácil de entender, facilitando futuras manutenções e expansões.
+📁 Estrutura de Arquivos
+batalha-naval/
+├── batalha_naval_novato.c
+├── batalha_naval_aventureiro.c
+├── batalha_naval_mestre.c
+└── README.md
 
----
+💬 Sugestões de Commits
+Etapa	Mensagem sugerida
+Nível Novato	feat: cria tabuleiro 10x10 e posiciona dois navios básicos
+Nível Aventureiro	feat: adiciona navios diagonais e valida sobreposição
+Nível Mestre	feat: adiciona habilidades especiais (cone, cruz e octaedro) com áreas de efeito
+🏁 Conclusão
 
-Boa sorte no desenvolvimento deste desafio! Aproveite para aprimorar suas habilidades em vetores e matrizes enquanto progride pelos níveis.
-
-Equipe de Ensino - MateCheck
+Com estes três desafios, você conclui o desenvolvimento completo do Batalha Naval em C, aplicando os principais conceitos de vetores, matrizes e lógica condicional.
